@@ -502,7 +502,8 @@ endif()
 
 # Link library to external libraries.
 target_link_libraries(${PROJECT_NAME}
-    ${PRIVACY}
+    PUBLIC
+    soatracer_tp
     fastcdr
     foonathan_memory
     ${CMAKE_THREAD_LIBS_INIT} ${CMAKE_DL_LIBS}

@@ -429,6 +429,10 @@ option(FASTDDS_STATISTICS "Enable Fast DDS Statistics Module" ON)
 ###############################################################################
 # Compile library.
 ###############################################################################
+
+# include tracepoints subdirectory to obtain the soatracer_tp library
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tracepoints)
+
 add_subdirectory(src/cpp)
 if(MINGW_COMPILE)
     target_link_libraries(fastdds PUBLIC ws2_32 mswsock)
@@ -438,6 +442,8 @@ endif()
 # Add http://optionparser.sourceforge.net/ as unified cli parser
 ###############################################################################
 add_subdirectory(thirdparty/optionparser)
+
+
 
 ###############################################################################
 # Testing options
