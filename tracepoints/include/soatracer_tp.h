@@ -1,9 +1,6 @@
 #undef TRACEPOINT_PROVIDER
 #define TRACEPOINT_PROVIDER soatracer_trace_provider
 
-#undef DISCOVERY_TRACEPOINT_PROVIDER
-#define DISCOVERY_TRACEPOINT_PROVIDER soatracer_trace_provider
-
 #undef LTTNG_UST_TRACEPOINT_INCLUDE
 #define LTTNG_UST_TRACEPOINT_INCLUDE "./soatracer_tp.h"
 #if !defined(_SOATRACER_TP_H) || defined(LTTNG_UST_TRACEPOINT_HEADER_MULTI_READ)
@@ -296,36 +293,6 @@ LTTNG_UST_TRACEPOINT_EVENT(
     )
 )
 
-
-
-// -----------------------Tracepoint Events for Discovery Analysis----------------------------------
-
-LTTNG_UST_TRACEPOINT_EVENT(
-    DISCOVERY_TRACEPOINT_PROVIDER,
-    after_init,
-    LTTNG_UST_TP_ARGS(
-        int, my_integer_arg,
-        char *, my_string_arg
-    ),
-    LTTNG_UST_TP_FIELDS(
-        lttng_ust_field_string(my_string_field, my_string_arg)
-        lttng_ust_field_integer(int, my_integer_field, my_integer_arg)
-    )
-)
-
-
-LTTNG_UST_TRACEPOINT_EVENT(
-    DISCOVERY_TRACEPOINT_PROVIDER,
-    after_discovery_event_1,
-    LTTNG_UST_TP_ARGS(
-        int, my_integer_arg,
-        char *, my_string_arg
-    ),
-    LTTNG_UST_TP_FIELDS(
-        lttng_ust_field_string(my_string_field, my_string_arg)
-        lttng_ust_field_integer(int, my_integer_field, my_integer_arg)
-    )
-)
 
 
 #endif /* _SOATRACER_TP_H */

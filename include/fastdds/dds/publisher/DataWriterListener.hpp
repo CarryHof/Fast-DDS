@@ -25,7 +25,7 @@
 #include <fastdds/dds/core/status/IncompatibleQosStatus.hpp>
 #include <fastdds/dds/core/status/DeadlineMissedStatus.hpp>
 
-#include "soatracer_tp.h"
+#include "soatracer_disc_tp.h"
 
 namespace eprosima {
 namespace fastdds {
@@ -65,10 +65,9 @@ public:
             DataWriter* writer,
             const PublicationMatchedStatus& info)
     {
-        std::string s = "hello world";
-        //lttng_ust_tracepoint(TRACEPOINT_PROVIDER, fastdds_publisher_discovery, 42, s.c_str());
-        //lttng_ust_tracepoint(TRACEPOINT_PROVIDER, init_proc_timer, s.c_str(), 42, 42);
-        
+        std::string s = "hello from fastdds";
+        lttng_ust_tracepoint(soatracer_disc_trace_provider,debug, s.c_str());
+
         static_cast<void>(writer);
         static_cast<void>(info);
     }

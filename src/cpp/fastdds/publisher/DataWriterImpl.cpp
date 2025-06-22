@@ -1302,6 +1302,8 @@ void DataWriterImpl::InnerDataWriterListener::on_writer_matched(
         PublicationMatchedStatus callback_status;
         if (RETCODE_OK == data_writer_->get_publication_matched_status(callback_status))
         {
+            //std::string s = "hi";
+            //lttng_ust_tracepoint(TRACEPOINT_PROVIDER,ddiscovery_after_endpoint_found, s.c_str(), 42);
             listener->on_publication_matched(data_writer_->user_datawriter_, callback_status);
         }
     }
