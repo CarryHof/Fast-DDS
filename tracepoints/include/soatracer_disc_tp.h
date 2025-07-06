@@ -19,6 +19,103 @@ LTTNG_UST_TRACEPOINT_EVENT(
     TP_FIELDS(ctf_string(msg, message))
 )
 
+LTTNG_UST_TRACEPOINT_EVENT(
+    DISC_TRACEPOINT_PROVIDER,
+    data_writer_endpoint_matched, // publisher found and matched an endpoint
+    LTTNG_UST_TP_ARGS(
+        const char *, service_name,
+        int, service_id,
+        int, test_id
+        // int, pub_matched_status,
+        // int, cur_pubs_matched,
+        // int, total_pubs_matched
+    ),
+    LTTNG_UST_TP_FIELDS(
+        lttng_ust_field_string(service_name, service_name)
+        lttng_ust_field_integer(int, service_id, service_id)
+        lttng_ust_field_integer(int, test_id, test_id)
+        // lttng_ust_field_integer(int, pub_matched_status, pub_matched_status)
+        // lttng_ust_field_integer(int, cur_pubs_matched, cur_pubs_matched)
+        // lttng_ust_field_integer(int, total_pubs_matched, total_pubs_matched)
+    )
+)
+LTTNG_UST_TRACEPOINT_EVENT(
+    DISC_TRACEPOINT_PROVIDER,
+    data_reader_endpoint_matched, // subscriber found and matched an endpoint
+    LTTNG_UST_TP_ARGS(
+        const char *, service_name,
+        int, service_id,
+        int, test_id
+    ),
+    LTTNG_UST_TP_FIELDS(
+        lttng_ust_field_string(service_name, service_name)
+        lttng_ust_field_integer(int, service_id, service_id)
+        lttng_ust_field_integer(int, test_id, test_id)
+    )
+)
+
+LTTNG_UST_TRACEPOINT_EVENT(
+    DISC_TRACEPOINT_PROVIDER,
+    init,
+    LTTNG_UST_TP_ARGS(
+        const char *, service_name,
+        int, service_id,
+        int, test_id
+    ),
+    LTTNG_UST_TP_FIELDS(
+        lttng_ust_field_string(service_name, service_name)
+        lttng_ust_field_integer(int, service_id, service_id)
+        lttng_ust_field_integer(int, test_id, test_id)
+    )
+)
+
+LTTNG_UST_TRACEPOINT_EVENT(
+    DISC_TRACEPOINT_PROVIDER,
+    participant_discovery,
+    LTTNG_UST_TP_ARGS(
+        const char *, service_name,
+        int, service_id,
+        int, test_id
+    ),
+    LTTNG_UST_TP_FIELDS(
+        lttng_ust_field_string(service_name, service_name)
+        lttng_ust_field_integer(int, service_id, service_id)
+        lttng_ust_field_integer(int, test_id, test_id)
+    )
+)
+
+
+LTTNG_UST_TRACEPOINT_EVENT(
+    DISC_TRACEPOINT_PROVIDER,
+    data_reader_discovery,
+    LTTNG_UST_TP_ARGS(
+        const char *, service_name,
+        int, service_id,
+        int, test_id
+    ),
+    LTTNG_UST_TP_FIELDS(
+        lttng_ust_field_string(service_name, service_name)
+        lttng_ust_field_integer(int, service_id, service_id)
+        lttng_ust_field_integer(int, test_id, test_id)
+    )
+)
+
+LTTNG_UST_TRACEPOINT_EVENT(
+    DISC_TRACEPOINT_PROVIDER,
+    data_writer_discovery,
+    LTTNG_UST_TP_ARGS(
+        const char *, service_name,
+        int, service_id,
+        int, test_id
+    ),
+    LTTNG_UST_TP_FIELDS(
+        lttng_ust_field_string(service_name, service_name)
+        lttng_ust_field_integer(int, service_id, service_id)
+        lttng_ust_field_integer(int, test_id, test_id)
+    )
+)
+
+
 #endif
 
 #include <lttng/tracepoint-event.h>
