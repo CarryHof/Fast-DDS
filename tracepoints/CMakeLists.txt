@@ -5,7 +5,7 @@ find_package(LTTngUST REQUIRED)
 
 include_directories(include)
 
-add_library(${PROJECT_NAME} STATIC src/soatracer_tp.cpp src/soatracer_disc_tp.cpp include/soatracer_disc_tp.h) #include/soatracer_tp.h src/provider2_tp.cpp include/provider2_tp.h) 
+add_library(${PROJECT_NAME} SHARED src/soatracer_tp.cpp src/soatracer_disc_tp.cpp include/soatracer_disc_tp.h) #include/soatracer_tp.h src/provider2_tp.cpp include/provider2_tp.h) 
 target_compile_options(soatracer_tp PRIVATE -fPIC)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
